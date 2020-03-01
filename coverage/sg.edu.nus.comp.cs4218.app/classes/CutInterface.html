@@ -1,0 +1,86 @@
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html id="htmlId">
+<head>
+  <title>Coverage Report :: CutInterface</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+  </style>
+</head>
+
+<body>
+<div class="header"></div>
+
+<div class="content">
+<div class="breadCrumbs">
+    [ <a href="../../index.html">all classes</a> ]
+    [ <a href="../index.html">sg.edu.nus.comp.cs4218.app</a> ]
+</div>
+
+<h1>Coverage Summary for Class: CutInterface (sg.edu.nus.comp.cs4218.app)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+</tr>
+<tr>
+  <td class="name">CutInterface</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<div class="sourceCode"><i>1</i>&nbsp;package sg.edu.nus.comp.cs4218.app;
+<i>2</i>&nbsp;
+<i>3</i>&nbsp;import sg.edu.nus.comp.cs4218.Application;
+<i>4</i>&nbsp;
+<i>5</i>&nbsp;import java.io.InputStream;
+<i>6</i>&nbsp;
+<i>7</i>&nbsp;public interface CutInterface extends Application {
+<i>8</i>&nbsp;
+<i>9</i>&nbsp;    /**
+<i>10</i>&nbsp;     * Cuts out selected portions of each line
+<i>11</i>&nbsp;     *
+<i>12</i>&nbsp;     * @param isCharPo Boolean option to cut by character position
+<i>13</i>&nbsp;     * @param isBytePo Boolean option to cut by byte position
+<i>14</i>&nbsp;     * @param isRange  Boolean option to perform range-based cut
+<i>15</i>&nbsp;     * @param startIdx index to begin cut
+<i>16</i>&nbsp;     * @param endIdx   index to end cut
+<i>17</i>&nbsp;     * @param fileName Array of String of file names
+<i>18</i>&nbsp;     * @return
+<i>19</i>&nbsp;     * @throws Exception
+<i>20</i>&nbsp;     */
+<i>21</i>&nbsp;    String cutFromFiles(Boolean isCharPo, Boolean isBytePo, Boolean isRange, int startIdx, int endIdx,
+<i>22</i>&nbsp;                        String... fileName) throws Exception;
+<i>23</i>&nbsp;
+<i>24</i>&nbsp;
+<i>25</i>&nbsp;    /**
+<i>26</i>&nbsp;     * Cuts out selected portions of each line
+<i>27</i>&nbsp;     *
+<i>28</i>&nbsp;     * @param isCharPo Boolean option to cut by character position
+<i>29</i>&nbsp;     * @param isBytePo Boolean option to cut by byte position
+<i>30</i>&nbsp;     * @param isRange  Boolean option to perform range-based cut
+<i>31</i>&nbsp;     * @param startIdx index to begin cut
+<i>32</i>&nbsp;     * @param endIdx   index to end cut
+<i>33</i>&nbsp;     * @param stdin    InputStream containing arguments from Stdin
+<i>34</i>&nbsp;     * @return
+<i>35</i>&nbsp;     * @throws Exception
+<i>36</i>&nbsp;     */
+<i>37</i>&nbsp;    String cutFromStdin(Boolean isCharPo, Boolean isBytePo, Boolean isRange, int startIdx, int endIdx,
+<i>38</i>&nbsp;                        InputStream stdin) throws Exception;
+<i>39</i>&nbsp;}
+</div>
+</div>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2020-03-02 05:58</div>
+</div>
+</body>
+</html>
