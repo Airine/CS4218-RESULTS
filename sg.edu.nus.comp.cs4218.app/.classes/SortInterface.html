@@ -1,0 +1,80 @@
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html id="htmlId">
+<head>
+  <title>Coverage Report :: SortInterface</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+  </style>
+</head>
+
+<body>
+<div class="header"></div>
+
+<div class="content">
+<div class="breadCrumbs">
+    [ <a href="../../index.html">all classes</a> ]
+    [ <a href="../index.html">sg.edu.nus.comp.cs4218.app</a> ]
+</div>
+
+<h1>Coverage Summary for Class: SortInterface (sg.edu.nus.comp.cs4218.app)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+</tr>
+<tr>
+  <td class="name">SortInterface</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<div class="sourceCode"><i>1</i>&nbsp;package sg.edu.nus.comp.cs4218.app;
+<i>2</i>&nbsp;
+<i>3</i>&nbsp;import sg.edu.nus.comp.cs4218.Application;
+<i>4</i>&nbsp;
+<i>5</i>&nbsp;import java.io.InputStream;
+<i>6</i>&nbsp;
+<i>7</i>&nbsp;public interface SortInterface extends Application {
+<i>8</i>&nbsp;    /**
+<i>9</i>&nbsp;     * Returns string containing the orders of the lines of the specified file
+<i>10</i>&nbsp;     *
+<i>11</i>&nbsp;     * @param isFirstWordNumber Boolean option to treat the first word of a line as a number
+<i>12</i>&nbsp;     * @param isReverseOrder    Boolean option to sort in reverse order
+<i>13</i>&nbsp;     * @param isCaseIndependent Boolean option to perform case-independent sorting
+<i>14</i>&nbsp;     * @param fileName          Array of String of file names
+<i>15</i>&nbsp;     * @return
+<i>16</i>&nbsp;     * @throws Exception
+<i>17</i>&nbsp;     */
+<i>18</i>&nbsp;    String sortFromFiles(Boolean isFirstWordNumber, Boolean isReverseOrder, Boolean isCaseIndependent,
+<i>19</i>&nbsp;                         String... fileName) throws Exception;
+<i>20</i>&nbsp;
+<i>21</i>&nbsp;    /**
+<i>22</i>&nbsp;     * Returns string containing the orders of the lines from the standard input
+<i>23</i>&nbsp;     *
+<i>24</i>&nbsp;     * @param isFirstWordNumber Boolean option to treat the first word of a line as a number
+<i>25</i>&nbsp;     * @param isReverseOrder    Boolean option to sort in reverse order
+<i>26</i>&nbsp;     * @param isCaseIndependent Boolean option to perform case-independent sorting
+<i>27</i>&nbsp;     * @param stdin             InputStream containing arguments from Stdin
+<i>28</i>&nbsp;     * @return
+<i>29</i>&nbsp;     * @throws Exception
+<i>30</i>&nbsp;     */
+<i>31</i>&nbsp;    String sortFromStdin(Boolean isFirstWordNumber, Boolean isReverseOrder, Boolean isCaseIndependent,
+<i>32</i>&nbsp;                         InputStream stdin) throws Exception;
+<i>33</i>&nbsp;}
+</div>
+</div>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2020-03-01 22:21</div>
+</div>
+</body>
+</html>

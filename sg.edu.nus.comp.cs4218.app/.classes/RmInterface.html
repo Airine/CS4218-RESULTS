@@ -1,0 +1,64 @@
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html id="htmlId">
+<head>
+  <title>Coverage Report :: RmInterface</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+  </style>
+</head>
+
+<body>
+<div class="header"></div>
+
+<div class="content">
+<div class="breadCrumbs">
+    [ <a href="../../index.html">all classes</a> ]
+    [ <a href="../index.html">sg.edu.nus.comp.cs4218.app</a> ]
+</div>
+
+<h1>Coverage Summary for Class: RmInterface (sg.edu.nus.comp.cs4218.app)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+</tr>
+<tr>
+  <td class="name">RmInterface</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<div class="sourceCode"><i>1</i>&nbsp;package sg.edu.nus.comp.cs4218.app;
+<i>2</i>&nbsp;
+<i>3</i>&nbsp;import sg.edu.nus.comp.cs4218.Application;
+<i>4</i>&nbsp;
+<i>5</i>&nbsp;public interface RmInterface extends Application {
+<i>6</i>&nbsp;    /**
+<i>7</i>&nbsp;     * Remove the file. (It does not remove folder by default)
+<i>8</i>&nbsp;     *
+<i>9</i>&nbsp;     * @param isEmptyFolder Boolean option to delete a folder only if it is empty
+<i>10</i>&nbsp;     * @param isRecursive   Boolean option to recursively delete the folder contents (traversing
+<i>11</i>&nbsp;     *                      through all folders inside the specified folder)
+<i>12</i>&nbsp;     * @param fileName      Array of String of file names
+<i>13</i>&nbsp;     * @throws Exception
+<i>14</i>&nbsp;     */
+<i>15</i>&nbsp;
+<i>16</i>&nbsp;    void remove(Boolean isEmptyFolder, Boolean isRecursive, String... fileName) throws Exception;
+<i>17</i>&nbsp;}
+</div>
+</div>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2020-03-01 22:21</div>
+</div>
+</body>
+</html>
