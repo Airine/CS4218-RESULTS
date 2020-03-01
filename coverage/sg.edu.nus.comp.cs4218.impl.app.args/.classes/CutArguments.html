@@ -1,0 +1,174 @@
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html id="htmlId">
+<head>
+  <title>Coverage Report :: CutArguments</title>
+  <style type="text/css">
+    @import "../../.css/coverage.css";
+  </style>
+</head>
+
+<body>
+<div class="header"></div>
+
+<div class="content">
+<div class="breadCrumbs">
+    [ <a href="../../index.html">all classes</a> ]
+    [ <a href="../index.html">sg.edu.nus.comp.cs4218.impl.app.args</a> ]
+</div>
+
+<h1>Coverage Summary for Class: CutArguments (sg.edu.nus.comp.cs4218.impl.app.args)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">CutArguments</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/ 1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (8/ 8)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (36/ 36)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<div class="sourceCode"><i>1</i>&nbsp;package sg.edu.nus.comp.cs4218.impl.app.args;
+<i>2</i>&nbsp;
+<i>3</i>&nbsp;import java.util.ArrayList;
+<i>4</i>&nbsp;import java.util.List;
+<i>5</i>&nbsp;
+<i>6</i>&nbsp;import static sg.edu.nus.comp.cs4218.impl.util.ErrorConstants.*;
+<i>7</i>&nbsp;import static sg.edu.nus.comp.cs4218.impl.util.StringUtils.CHAR_FLAG_PREFIX;
+<i>8</i>&nbsp;
+<i>9</i>&nbsp;public class CutArguments {
+<i>10</i>&nbsp;
+<i>11</i>&nbsp;    public static final char CHAR_CUTBYCHAR = &#39;c&#39;;
+<i>12</i>&nbsp;    public static final char CHAR_CUTBYBYTE = &#39;b&#39;;
+<i>13</i>&nbsp;    private final List&lt;String&gt; files;
+<i>14</i>&nbsp;    private boolean charPo, bytePo, range;
+<i>15</i>&nbsp;    private int startIdx, endIdx;
+<i>16</i>&nbsp;
+<b class="fc"><i>17</i>&nbsp;    public CutArguments() {</b>
+<b class="fc"><i>18</i>&nbsp;        this.charPo = false;</b>
+<b class="fc"><i>19</i>&nbsp;        this.bytePo = false;</b>
+<b class="fc"><i>20</i>&nbsp;        this.range = false;</b>
+<b class="fc"><i>21</i>&nbsp;        this.startIdx = 0;</b>
+<b class="fc"><i>22</i>&nbsp;        this.endIdx = 0;</b>
+<b class="fc"><i>23</i>&nbsp;        this.files = new ArrayList&lt;&gt;();</b>
+<b class="fc"><i>24</i>&nbsp;    }</b>
+<i>25</i>&nbsp;
+<i>26</i>&nbsp;    /**
+<i>27</i>&nbsp;     * Handles argument list parsing for the `cut` application.
+<i>28</i>&nbsp;     *
+<i>29</i>&nbsp;     * @param args Array of arguments to parse
+<i>30</i>&nbsp;     * @throws Exception
+<i>31</i>&nbsp;     */
+<i>32</i>&nbsp;    public void parse(String... args) throws Exception {
+<b class="fc"><i>33</i>&nbsp;        if (args.length &lt; 2) {</b>
+<b class="fc"><i>34</i>&nbsp;            throw new Exception(ERR_NO_ARGS);</b>
+<i>35</i>&nbsp;        }
+<i>36</i>&nbsp;        // See if flag is invalid
+<b class="fc"><i>37</i>&nbsp;        if (args[0].charAt(0) == CHAR_FLAG_PREFIX &amp;&amp; args[0].charAt(1) == CHAR_CUTBYCHAR) {</b>
+<b class="fc"><i>38</i>&nbsp;            charPo = true;</b>
+<b class="fc"><i>39</i>&nbsp;        } else if (args[0].charAt(0) == CHAR_FLAG_PREFIX &amp;&amp; args[0].charAt(1) == CHAR_CUTBYBYTE) {</b>
+<b class="fc"><i>40</i>&nbsp;            bytePo = true;</b>
+<i>41</i>&nbsp;        } else {
+<b class="fc"><i>42</i>&nbsp;            throw new Exception(ERR_INVALID_FLAG);</b>
+<i>43</i>&nbsp;        }
+<i>44</i>&nbsp;
+<i>45</i>&nbsp;        // Parse indexes
+<b class="fc"><i>46</i>&nbsp;        if (args[1].contains(&quot;-&quot;)) {</b>
+<b class="fc"><i>47</i>&nbsp;            int begin = Integer.parseInt(args[1].substring(0, args[1].indexOf(&#39;-&#39;)));</b>
+<b class="fc"><i>48</i>&nbsp;            int end = Integer.parseInt(args[1].substring(args[1].indexOf(&#39;-&#39;) + 1));</b>
+<b class="fc"><i>49</i>&nbsp;            if (begin &gt; end) {</b>
+<b class="fc"><i>50</i>&nbsp;                throw new Exception(ERR_INVALID_RANGE);</b>
+<i>51</i>&nbsp;            }
+<b class="fc"><i>52</i>&nbsp;            range = true;</b>
+<b class="fc"><i>53</i>&nbsp;            startIdx = begin;</b>
+<b class="fc"><i>54</i>&nbsp;            endIdx = end;</b>
+<b class="fc"><i>55</i>&nbsp;        } else if (args[1].contains(&quot;,&quot;)) {</b>
+<b class="fc"><i>56</i>&nbsp;            startIdx = Integer.parseInt(args[1].substring(0, args[1].indexOf(&#39;,&#39;)));</b>
+<b class="fc"><i>57</i>&nbsp;            endIdx = Integer.parseInt(args[1].substring(args[1].indexOf(&#39;,&#39;) + 1));</b>
+<i>58</i>&nbsp;        } else {
+<b class="fc"><i>59</i>&nbsp;            startIdx = Integer.parseInt(args[1]);</b>
+<i>60</i>&nbsp;        }
+<i>61</i>&nbsp;
+<i>62</i>&nbsp;        // Parse files
+<b class="fc"><i>63</i>&nbsp;        for (int index = 2; index &lt; args.length; ++index) {</b>
+<b class="fc"><i>64</i>&nbsp;            this.files.add(args[index].trim());</b>
+<i>65</i>&nbsp;        }
+<b class="fc"><i>66</i>&nbsp;    }</b>
+<i>67</i>&nbsp;
+<i>68</i>&nbsp;    public List&lt;String&gt; getFiles() {
+<b class="fc"><i>69</i>&nbsp;        return files;</b>
+<i>70</i>&nbsp;    }
+<i>71</i>&nbsp;
+<i>72</i>&nbsp;    public boolean isCharPo() {
+<b class="fc"><i>73</i>&nbsp;        return charPo;</b>
+<i>74</i>&nbsp;    }
+<i>75</i>&nbsp;
+<i>76</i>&nbsp;    public boolean isBytePo() {
+<b class="fc"><i>77</i>&nbsp;        return bytePo;</b>
+<i>78</i>&nbsp;    }
+<i>79</i>&nbsp;
+<i>80</i>&nbsp;    public int getStartIdx() {
+<b class="fc"><i>81</i>&nbsp;        return startIdx;</b>
+<i>82</i>&nbsp;    }
+<i>83</i>&nbsp;
+<i>84</i>&nbsp;    public boolean isRange() {
+<b class="fc"><i>85</i>&nbsp;        return range;</b>
+<i>86</i>&nbsp;    }
+<i>87</i>&nbsp;
+<i>88</i>&nbsp;    public int getEndIdx() {
+<b class="fc"><i>89</i>&nbsp;        return endIdx;</b>
+<i>90</i>&nbsp;    }
+<i>91</i>&nbsp;}
+</div>
+</div>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2020-03-01 22:21</div>
+</div>
+</body>
+</html>

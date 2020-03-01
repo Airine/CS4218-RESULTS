@@ -1,0 +1,189 @@
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html id="htmlId">
+<head>
+  <title>Coverage Report :: StringUtils</title>
+  <style type="text/css">
+    @import "../../.css/coverage.css";
+  </style>
+</head>
+
+<body>
+<div class="header"></div>
+
+<div class="content">
+<div class="breadCrumbs">
+    [ <a href="../../index.html">all classes</a> ]
+    [ <a href="../index.html">sg.edu.nus.comp.cs4218.impl.util</a> ]
+</div>
+
+<h1>Coverage Summary for Class: StringUtils (sg.edu.nus.comp.cs4218.impl.util)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">StringUtils</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/ 1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    85.7%
+  </span>
+  <span class="absValue">
+    (6/ 7)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    92%
+  </span>
+  <span class="absValue">
+    (23/ 25)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<div class="sourceCode"><i>1</i>&nbsp;package sg.edu.nus.comp.cs4218.impl.util;
+<i>2</i>&nbsp;
+<i>3</i>&nbsp;import java.io.File;
+<i>4</i>&nbsp;import java.math.BigInteger;
+<i>5</i>&nbsp;import java.util.Arrays;
+<i>6</i>&nbsp;
+<i>7</i>&nbsp;public final class StringUtils {
+<b class="fc"><i>8</i>&nbsp;    public static final String STRING_NEWLINE = System.lineSeparator();</b>
+<i>9</i>&nbsp;    public static final String STRING_CURR_DIR = &quot;.&quot;;
+<i>10</i>&nbsp;    public static final String STRING_PARENT_DIR = &quot;..&quot;;
+<b class="fc"><i>11</i>&nbsp;    public static final char CHAR_FILE_SEP = File.separatorChar;</b>
+<i>12</i>&nbsp;    public static final char CHAR_TAB = &#39;\t&#39;;
+<i>13</i>&nbsp;    public static final char CHAR_SPACE = &#39; &#39;;
+<i>14</i>&nbsp;    public static final char CHAR_DOUBLE_QUOTE = &#39;&quot;&#39;;
+<i>15</i>&nbsp;    public static final char CHAR_SINGLE_QUOTE = &#39;\&#39;&#39;;
+<i>16</i>&nbsp;    public static final char CHAR_BACK_QUOTE = &#39;`&#39;;
+<i>17</i>&nbsp;    public static final char CHAR_REDIR_INPUT = &#39;&lt;&#39;;
+<i>18</i>&nbsp;    public static final char CHAR_REDIR_OUTPUT = &#39;&gt;&#39;;
+<i>19</i>&nbsp;    public static final char CHAR_PIPE = &#39;|&#39;;
+<i>20</i>&nbsp;    public static final char CHAR_SEMICOLON = &#39;;&#39;;
+<i>21</i>&nbsp;    public static final char CHAR_ASTERISK = &#39;*&#39;;
+<i>22</i>&nbsp;    public static final char CHAR_FLAG_PREFIX = &#39;-&#39;;
+<i>23</i>&nbsp;
+<b class="nc"><i>24</i>&nbsp;    private StringUtils() {</b>
+<b class="nc"><i>25</i>&nbsp;    }</b>
+<i>26</i>&nbsp;
+<i>27</i>&nbsp;    /**
+<i>28</i>&nbsp;     * Returns the file separator defined for a particular system.
+<i>29</i>&nbsp;     * Used for RegexArgument parsing only.
+<i>30</i>&nbsp;     *
+<i>31</i>&nbsp;     * @return String of file separator
+<i>32</i>&nbsp;     */
+<i>33</i>&nbsp;    static String fileSeparator() {
+<i>34</i>&nbsp;        // We need to escape \ in Windows...
+<b class="fc"><i>35</i>&nbsp;        if (System.getProperty(&quot;os.name&quot;).toLowerCase().contains(&quot;win&quot;)) {//NOPMD</b>
+<b class="fc"><i>36</i>&nbsp;            return &#39;\\&#39; + File.separator;</b>
+<i>37</i>&nbsp;        }
+<b class="fc"><i>38</i>&nbsp;        return File.separator;</b>
+<i>39</i>&nbsp;    }
+<i>40</i>&nbsp;
+<i>41</i>&nbsp;    /**
+<i>42</i>&nbsp;     * Check if string contains only whitespace
+<i>43</i>&nbsp;     *
+<i>44</i>&nbsp;     * @param str String to be checked
+<i>45</i>&nbsp;     * @return true under any one of the 3 conditions:
+<i>46</i>&nbsp;     * 1. string is null
+<i>47</i>&nbsp;     * 2. string is empty
+<i>48</i>&nbsp;     * 3. string contains only whitespace
+<i>49</i>&nbsp;     */
+<i>50</i>&nbsp;    public static boolean isBlank(String str) {
+<b class="fc"><i>51</i>&nbsp;        if (str == null || str.isEmpty()) {</b>
+<b class="fc"><i>52</i>&nbsp;            return true;</b>
+<i>53</i>&nbsp;        }
+<i>54</i>&nbsp;
+<b class="fc"><i>55</i>&nbsp;        boolean blank = true;</b>
+<i>56</i>&nbsp;
+<b class="fc"><i>57</i>&nbsp;        for (int i = 0; i &lt; str.length(); i++) {</b>
+<b class="fc"><i>58</i>&nbsp;            blank &amp;= Character.isWhitespace(str.charAt(i));</b>
+<i>59</i>&nbsp;        }
+<i>60</i>&nbsp;
+<b class="fc"><i>61</i>&nbsp;        return blank;</b>
+<i>62</i>&nbsp;    }
+<i>63</i>&nbsp;
+<i>64</i>&nbsp;    /**
+<i>65</i>&nbsp;     * Performs c * n (as in python)
+<i>66</i>&nbsp;     *
+<i>67</i>&nbsp;     * @param character char to be multiplied
+<i>68</i>&nbsp;     * @param num       if num is &lt; 0, num is assumed to be 0
+<i>69</i>&nbsp;     * @return String result of c * n
+<i>70</i>&nbsp;     */
+<i>71</i>&nbsp;    public static String multiplyChar(char character, int num) {
+<b class="fc"><i>72</i>&nbsp;        int length = Math.max(num, 0);</b>
+<b class="fc"><i>73</i>&nbsp;        char[] arr = new char[length];</b>
+<b class="fc"><i>74</i>&nbsp;        Arrays.fill(arr, character);</b>
+<b class="fc"><i>75</i>&nbsp;        return new String(arr);</b>
+<i>76</i>&nbsp;    }
+<i>77</i>&nbsp;
+<i>78</i>&nbsp;    /**
+<i>79</i>&nbsp;     * Tokenize a string delimited by whitespace
+<i>80</i>&nbsp;     *
+<i>81</i>&nbsp;     * @param str String to be tokenized
+<i>82</i>&nbsp;     * @return String array containing the tokens
+<i>83</i>&nbsp;     */
+<i>84</i>&nbsp;    public static String[] tokenize(String str) {
+<b class="fc"><i>85</i>&nbsp;        if (isBlank(str)) {</b>
+<b class="fc"><i>86</i>&nbsp;            return new String[0];</b>
+<i>87</i>&nbsp;        }
+<b class="fc"><i>88</i>&nbsp;        return str.trim().split(&quot;\\s+&quot;);</b>
+<i>89</i>&nbsp;    }
+<i>90</i>&nbsp;
+<i>91</i>&nbsp;    /**
+<i>92</i>&nbsp;     * Checks if a string can be represented as a number.
+<i>93</i>&nbsp;     *
+<i>94</i>&nbsp;     * @param str String possibly representing a number
+<i>95</i>&nbsp;     * @return true if str can be represented as a number
+<i>96</i>&nbsp;     */
+<i>97</i>&nbsp;    public static boolean isNumber(String str) {
+<i>98</i>&nbsp;        BigInteger bigInt;
+<i>99</i>&nbsp;        try {
+<b class="fc"><i>100</i>&nbsp;            bigInt = new BigInteger(str);</b>
+<b class="fc"><i>101</i>&nbsp;        } catch (Exception ex) {</b>
+<b class="fc"><i>102</i>&nbsp;            return false;</b>
+<b class="fc"><i>103</i>&nbsp;        }</b>
+<b class="fc"><i>104</i>&nbsp;        return !bigInt.toString().isEmpty();</b>
+<i>105</i>&nbsp;    }
+<i>106</i>&nbsp;}
+</div>
+</div>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2020-03-01 22:21</div>
+</div>
+</body>
+</html>

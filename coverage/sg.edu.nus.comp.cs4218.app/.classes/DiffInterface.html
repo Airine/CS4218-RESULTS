@@ -1,0 +1,106 @@
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html id="htmlId">
+<head>
+  <title>Coverage Report :: DiffInterface</title>
+  <style type="text/css">
+    @import "../../.css/coverage.css";
+  </style>
+</head>
+
+<body>
+<div class="header"></div>
+
+<div class="content">
+<div class="breadCrumbs">
+    [ <a href="../../index.html">all classes</a> ]
+    [ <a href="../index.html">sg.edu.nus.comp.cs4218.app</a> ]
+</div>
+
+<h1>Coverage Summary for Class: DiffInterface (sg.edu.nus.comp.cs4218.app)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+</tr>
+<tr>
+  <td class="name">DiffInterface</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<div class="sourceCode"><i>1</i>&nbsp;package sg.edu.nus.comp.cs4218.app;
+<i>2</i>&nbsp;
+<i>3</i>&nbsp;import sg.edu.nus.comp.cs4218.Application;
+<i>4</i>&nbsp;
+<i>5</i>&nbsp;import java.io.InputStream;
+<i>6</i>&nbsp;
+<i>7</i>&nbsp;public interface DiffInterface extends Application {
+<i>8</i>&nbsp;    /**
+<i>9</i>&nbsp;     * Returns a string of files diff. The diff report contains a list of lines unique to the first
+<i>10</i>&nbsp;     * file and lines unique to the second file. Begin the former with &#39;&lt;&#39; for each line. Begin the
+<i>11</i>&nbsp;     * latter with &#39;&gt;&#39; for each line. Returns and empty string if there are no difference.
+<i>12</i>&nbsp;     *
+<i>13</i>&nbsp;     * @param fileNameA  String of file name of the first file to be diff
+<i>14</i>&nbsp;     * @param fileNameB  String of file name of the second file to be diff
+<i>15</i>&nbsp;     * @param isShowSame Boolean option to print &#39;Files [file_names] identical&#39; if the files are
+<i>16</i>&nbsp;     *                   identical
+<i>17</i>&nbsp;     * @param isNoBlank  Boolean option to ignore changes with blank lines
+<i>18</i>&nbsp;     * @param isSimple   Boolean option to only print &#39;Files [file_names] differ&#39; if the files are
+<i>19</i>&nbsp;     *                   different
+<i>20</i>&nbsp;     * @throws Exception
+<i>21</i>&nbsp;     */
+<i>22</i>&nbsp;    String diffTwoFiles(String fileNameA, String fileNameB, Boolean isShowSame,
+<i>23</i>&nbsp;                        Boolean isNoBlank, Boolean isSimple) throws Exception;
+<i>24</i>&nbsp;
+<i>25</i>&nbsp;    /**
+<i>26</i>&nbsp;     * Returns a string of folder diff. Non-recursively enter each folders and perform diff on each
+<i>27</i>&nbsp;     * files alphabetically. Report which files differ, common directories, and which files are
+<i>28</i>&nbsp;     * unique to which folder. For the files in the directory, the report contains a list of lines
+<i>29</i>&nbsp;     * unique to the first file and lines unique to the second file. Begin the former with &#39;&lt;&#39; for
+<i>30</i>&nbsp;     * each line. Begin the latter with &#39;&gt;&#39; for each line. Returns and empty string if there are no
+<i>31</i>&nbsp;     * difference.
+<i>32</i>&nbsp;     *
+<i>33</i>&nbsp;     * @param folderA    of path to first directory to diff
+<i>34</i>&nbsp;     * @param folderB    of path to second directory to diff
+<i>35</i>&nbsp;     * @param isShowSame Boolean option to print &#39;Files [file_names] identical&#39; if the files are
+<i>36</i>&nbsp;     *                   identical
+<i>37</i>&nbsp;     * @param isNoBlank  Boolean option to ignore changes with blank lines
+<i>38</i>&nbsp;     * @param isSimple   Boolean option to only print &#39;Files [file_names] differ&#39; if the files are
+<i>39</i>&nbsp;     *                   different
+<i>40</i>&nbsp;     * @throws Exception
+<i>41</i>&nbsp;     */
+<i>42</i>&nbsp;    String diffTwoDir(String folderA, String folderB, Boolean isShowSame, Boolean isNoBlank,
+<i>43</i>&nbsp;                      Boolean isSimple) throws Exception;
+<i>44</i>&nbsp;
+<i>45</i>&nbsp;    /**
+<i>46</i>&nbsp;     * Returns a string of file and Stdin diff. The diff report contains a list of lines unique to
+<i>47</i>&nbsp;     * the file and lines unique to the Stdin. Begin the former with &#39;&lt;&#39; for each line. Begin the
+<i>48</i>&nbsp;     * latter with &#39;&gt;&#39; for each line. Returns and empty string if there are no difference.
+<i>49</i>&nbsp;     *
+<i>50</i>&nbsp;     * @param fileName   String of file name of the file to be diff
+<i>51</i>&nbsp;     * @param stdin      InputStream of Stdin arg to diff
+<i>52</i>&nbsp;     * @param isShowSame Boolean option to print &#39;Inputs identical&#39; if the files are identical
+<i>53</i>&nbsp;     * @param isNoBlank  Boolean option to ignore changes with blank lines
+<i>54</i>&nbsp;     * @param isSimple   Boolean option to only print &#39;Inputs differ&#39; if the files are different
+<i>55</i>&nbsp;     * @throws Exception
+<i>56</i>&nbsp;     */
+<i>57</i>&nbsp;    String diffFileAndStdin(String fileName, InputStream stdin, Boolean isShowSame,
+<i>58</i>&nbsp;                            Boolean isNoBlank, Boolean isSimple) throws Exception;
+<i>59</i>&nbsp;}
+</div>
+</div>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2020-03-01 22:21</div>
+</div>
+</body>
+</html>
